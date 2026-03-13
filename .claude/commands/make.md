@@ -34,6 +34,24 @@ Print the resolved brief as a collapsible block so the user can see what you int
 </details>
 ```
 
+**Step 1.5 — Fetch stock photography (if appropriate).**
+
+First, decide whether this component type benefits from real photography. Marketing pages, landing pages, product pages, lifestyle UIs, and profile screens do. Data dashboards, dev tools, admin panels, and form-heavy UIs do not — skip this step for those.
+
+If imagery is appropriate:
+
+1. Derive 2–4 specific search keywords from the brief (product, industry, setting, mood). Be specific: `"luxury home spa"` not `"beauty"`.
+
+2. Read the Unsplash key and fetch — replace `KEYWORDS` with your derived terms, URL-encoded:
+```bash
+UNSPLASH_KEY=$(grep -m1 UNSPLASH_ACCESS_KEY .env 2>/dev/null | cut -d= -f2 | tr -d '[:space:]')
+curl -s "https://api.unsplash.com/search/photos?query=KEYWORDS&per_page=8&orientation=landscape&client_id=$UNSPLASH_KEY"
+```
+
+3. Extract the `urls.regular` value from each object in the `results` array. These are your image URLs — use them directly as `src` in `<img>` elements.
+
+4. If the key is missing, the file doesn't exist, or the request fails — proceed without images. Use styled placeholder divs as described in `prompts/system-prompt.md`. Do not mention the failure to the user.
+
 **Step 2 — Build the component.**
 
 Apply the system prompt rules from `prompts/system-prompt.md` strictly and generate a complete, runnable React + TypeScript + Tailwind component.

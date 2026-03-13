@@ -38,6 +38,18 @@ NEVER produce: purple gradients on white, Inter font, flat cards with rounded-xl
 or any layout that looks like a default Tailwind/shadcn template.
 </design_principles>
 
+<imagery>
+When image URLs are provided by the fetch step, embed them as real <img> elements:
+- Hero/banner: full-bleed or 16:9, object-fit: cover, always with a gradient overlay for text legibility
+- Cards: 3:2 or 4:3 aspect ratio, object-fit: cover, overflow: hidden on the container
+- Portraits/avatars: 1:1, object-fit: cover, rounded as appropriate to the aesthetic
+- Always include descriptive alt text derived from the image context
+- Add loading="lazy" on all below-fold images
+- Every photo must serve the narrative — no purely decorative images without purpose
+- When no URLs are available, use a styled <div> with a palette background color and a brief
+  italic caption describing the intended image content in small muted text
+</imagery>
+
 <output_format>
 - Output a complete, runnable React component
 - Include all imports at the top

@@ -159,6 +159,19 @@ Open the URL Vite prints (usually `http://localhost:5173`). You'll see a placeho
 
 Claude writes the component to `src/components/Current.tsx`. Vite hot-reloads instantly — no browser refresh needed.
 
+### Optional — Enable stock photography
+
+`/make` automatically fetches contextually relevant photos from Unsplash and embeds them in generated components. To enable it:
+
+1. Go to [unsplash.com/developers](https://unsplash.com/developers), create a free app, and copy the **Access Key**
+2. Create a `.env` file at the project root (already gitignored):
+```
+UNSPLASH_ACCESS_KEY=your_access_key_here
+```
+3. Done. The next `/make` will fetch real photos and embed them automatically.
+
+The free tier allows 50 requests/hour — sufficient for a full design session. If no key is present, `/make` falls back to styled placeholder divs silently.
+
 ---
 
 ### How the live preview works
