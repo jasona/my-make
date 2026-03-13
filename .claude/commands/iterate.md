@@ -28,7 +28,7 @@ Modify only what was requested. Do not:
 - Change the aesthetic direction unless explicitly asked
 - Add new features beyond what was specified
 
-Write the full updated component back to `src/components/Current.tsx`. The browser will hot-reload automatically.
+**You must use the Write tool to save the updated component back to `src/components/Current.tsx`.** Do not print the code as chat output — write it to disk. The browser will hot-reload automatically the moment the file is saved.
 
 **Step 3 — Summarize what changed.**
 

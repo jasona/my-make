@@ -38,7 +38,9 @@ Print the resolved brief as a collapsible block so the user can see what you int
 
 Apply the system prompt rules from `prompts/system-prompt.md` strictly and generate a complete, runnable React + TypeScript + Tailwind component.
 
-Do not hedge, explain at length, or offer alternatives. Write the component directly to `src/components/Current.tsx` — this is the live preview file watched by Vite. The browser will hot-reload as soon as you write it.
+Do not hedge, explain at length, or offer alternatives.
+
+**You must use the Write tool to save the component to `src/components/Current.tsx`.** Do not print the code as chat output — write it to disk. This is the file Vite watches; the browser will hot-reload the moment it is saved. If you print code to chat instead of writing the file, the user will see nothing change in the browser.
 
 After writing the file, output a single short paragraph noting any non-obvious decisions (font choice, color palette rationale, any animation logic).
 
